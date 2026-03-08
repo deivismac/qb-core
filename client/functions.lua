@@ -45,7 +45,8 @@ function QBCore.Functions.GetCoords(entity)
 end
 
 function QBCore.Functions.HasItem(items, amount)
-    return exports['qb-inventory']:HasItem(items, amount)
+    if GetResourceState('core_inventory') == 'missing' then return end
+    return exports['core_inventory']:hasItem(items, amount)
 end
 
 ---Returns the full character name
